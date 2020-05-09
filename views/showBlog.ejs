@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div style="height: 20vh;"></div>
+
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <h3><%= blog.title %></h3>
+        <h5><%= blog.created.toDateString() %></h5>
+    </div>
+    <div style="height: 5vh;"></div>
+    <div class="row">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 col-sm-10">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<%= blog.image %>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"> <%= blog.title %> </h5>
+                    <p class="card-text"> <%= blog.body %> </p>
+                    <a href="/blogs/<%= blog._id %>/edit" class="btn btn-primary ">Modifier</a>
+                    <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST"> 
+                        <button class="btn btn-primary ">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>
